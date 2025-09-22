@@ -50,7 +50,7 @@ The API provides three endpoints for handling image uploads and text detection.
 #### Upload File
 
 - **Endpoint:** `POST /upload`
-- **Description:** Uploads an image file to the server. The file will be stored in the `data/` directory.
+- **Description:** Uploads an image file to the server and rotates it by the orientation of the text detected. The file will be stored in the `data/` directory.
 - **Request:** `multipart/form-data` with a `file` field containing the image.
 - **Response:** A JSON message indicating success or failure.
 
@@ -146,10 +146,12 @@ curl -X POST "http://127.0.0.1:8000/get-bbox-by-line?file_name=your_image.jpg" -
 **Example using cURL:**
 
 ```bash
-curl -X POST "http://1227.0.0.1:8000/show-bbox?file_name=your_image.jpg" -o result_image.jpg
+curl -X POST "http://127.0.0.1:8000/show-bbox?file_name=your_image.jpg" -o result_image.jpg
 ```
 
-#### Show Bounding Boxes by Line on Image
+#### Show Bounding Boxes by Line on Image (TO BE IMPROVED)
+
+This endpoint should be improved
 
 - **Endpoint:** `POST /show-bbox-by-line`
 - **Description:** Detects text in a previously uploaded image, groups the bounding boxes by line, and returns an image with each line drawn in a different color.
